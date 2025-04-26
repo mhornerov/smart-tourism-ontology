@@ -1,0 +1,1011 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/smartourism#"
+     xml:base="https://w3id.org/smartourism"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:smartourism="https://w3id.org/smartourism#">
+    <owl:Ontology rdf:about="https://w3id.org/smartourism">
+        <owl:versionIRI rdf:resource="https://w3id.org/smartourism/1.0.0"/>
+        <dc:abstract>The domain of the ontology is framed around the different activities that surround traveling to a different city. The scope of the ontology will be modelled on the touristic attractions, events, hotels, restaurants and means of transport in a certain city.</dc:abstract>
+        <dc:description>This ontology structures information about events, hotels, tourist attractions and restaurants in different cities; shaping the domain of smart tourism. Its objective is to facilitate the semantic representation of the tourist offer to allow personalised recommendations and advanced queries by tourists and smart tourism systems.</dc:description>
+        <dc:title>Smart Tourism Ontology</dc:title>
+        <rdfs:comment>A Smart Tourism and Recommendations ontology.</rdfs:comment>
+        <rdfs:label>SmartTourism</rdfs:label>
+        <owl:versionInfo>Initial version of the ontology with the integration of,
+- CSVs with information of events, hotels, attractions, restaurants, means of transport and cities</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/abstract -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/abstract"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#sameAs -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#sameAs"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/smartourism#locationCity -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smartourism#locationCity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Event"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Hotel"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Restaurant"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#TouristAttraction"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Vehicle"/>
+        <rdfs:range rdf:resource="https://w3id.org/smartourism#City"/>
+        <rdfs:comment>Information about location.</rdfs:comment>
+        <rdfs:isDefinedBy>https://dbpedia.org/property/locationCity</rdfs:isDefinedBy>
+        <rdfs:label>locationCity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smartourism#rating -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smartourism#rating">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Hotel"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Restaurant"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#TouristAttraction"/>
+        <rdfs:range rdf:resource="https://w3id.org/smartourism#Rating"/>
+        <rdfs:comment>The value of the evaluation.</rdfs:comment>
+        <rdfs:label>rating</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topDataProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Rating"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smartourism#company -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smartourism#company">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Vehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The company the item belongs to.</rdfs:comment>
+        <rdfs:label>company</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/smartourism#latitude -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smartourism#latitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#City"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>The latitude of a location.</rdfs:comment>
+        <rdfs:label>latitude</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/smartourism#longitude -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smartourism#longitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#City"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>The longitude of a location.</rdfs:comment>
+        <rdfs:label>longitude</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/smartourism#name -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smartourism#name">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#City"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Event"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Hotel"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Restaurant"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#TouristAttraction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The name of the item.</rdfs:comment>
+        <rdfs:label>name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/smartourism#price -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smartourism#price">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Hotel"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Restaurant"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Vehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>The price of the item.</rdfs:comment>
+        <rdfs:label>price</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/smartourism#ratingValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smartourism#ratingValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Rating"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>The rating for the content.</rdfs:comment>
+        <rdfs:label>ratingValue</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/smartourism#servesCuisine -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smartourism#servesCuisine">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Restaurant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The cuisine of the restaurant.</rdfs:comment>
+        <rdfs:label>servesCuisine</rdfs:label>
+        <rdfs:sameAs>https://schema.org/servesCuisine</rdfs:sameAs>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/smartourism#starRating -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smartourism#starRating">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Hotel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment>An official rating for a lodging business or food establishment, e.g. from national associations or standards bodies.</rdfs:comment>
+        <rdfs:label>starRating</rdfs:label>
+        <rdfs:sameAs>https://schema.org/starRating</rdfs:sameAs>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/smartourism#startDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smartourism#startDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smartourism#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The start date of the item.</rdfs:comment>
+        <rdfs:label>startDate</rdfs:label>
+        <rdfs:sameAs>https://schema.org/startDate</rdfs:sameAs>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/smartourism#Beach -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Beach">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#TouristAttraction"/>
+        <rdfs:comment>A beach.</rdfs:comment>
+        <rdfs:label>Beach</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#BeachHotel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#BeachHotel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Hotel"/>
+        <rdfs:comment>A hotel or resort at the beach.</rdfs:comment>
+        <rdfs:label>BeachResort</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Bicycle -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Bicycle">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Vehicle"/>
+        <rdfs:comment>A bicycle.</rdfs:comment>
+        <rdfs:label>Bicycle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Bus -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Bus">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Vehicle"/>
+        <rdfs:comment>A bus (also omnibus or autobus) is a road vehicle designed to carry passengers.</rdfs:comment>
+        <rdfs:label>Bus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#BusinessHotel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#BusinessHotel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Hotel"/>
+        <rdfs:comment>A business hotel.</rdfs:comment>
+        <rdfs:label>BusinessHotel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#City -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#City">
+        <rdfs:comment>A city or town.</rdfs:comment>
+        <rdfs:isDefinedBy>https://schema.org/City</rdfs:isDefinedBy>
+        <rdfs:label>City</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#CountrysideHotel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#CountrysideHotel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Hotel"/>
+        <rdfs:comment>A type of hotel more often in the countryside. A rural hotel.</rdfs:comment>
+        <rdfs:label>Bed&amp;Breakfast</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Cultural_Entity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Cultural_Entity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#TouristAttraction"/>
+        <rdfs:comment>A cultural institute or site, collection and/or cultural heritage object.</rdfs:comment>
+        <rdfs:label>CulturalEntity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Event -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Event">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#locationCity"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smartourism#City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#startDate"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>An event happening at a certain time and location, such as a concert, lecture, or festival.</rdfs:comment>
+        <rdfs:isDefinedBy>https://schema.org/Event</rdfs:isDefinedBy>
+        <rdfs:label>Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#FoodEvent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#FoodEvent">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Event"/>
+        <rdfs:comment>Event type: Food event.</rdfs:comment>
+        <rdfs:label>FoodEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Hackaton -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Hackaton">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Event"/>
+        <rdfs:comment>A hackathon event.</rdfs:comment>
+        <rdfs:label>Hackaton</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#HolidayHotel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#HolidayHotel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Hotel"/>
+        <rdfs:comment>A tourist resort.</rdfs:comment>
+        <rdfs:label>TouristResort</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Hotel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Hotel">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#locationCity"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smartourism#City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#rating"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smartourism#Rating"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#starRating"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A hotel is an establishment that provides lodging.</rdfs:comment>
+        <rdfs:isDefinedBy>https://schema.org/Hotel</rdfs:isDefinedBy>
+        <rdfs:label>Hotel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#LuxuryHotel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#LuxuryHotel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Hotel"/>
+        <rdfs:comment>A luxury hotel.</rdfs:comment>
+        <rdfs:label>LuxuryHotel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Monument -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Monument">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#TouristAttraction"/>
+        <rdfs:comment>Building or monument.</rdfs:comment>
+        <rdfs:label>Monument</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Museum -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Museum">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#TouristAttraction"/>
+        <rdfs:comment>A physical or digital museum exhibiting a collection of resources.</rdfs:comment>
+        <rdfs:label>Museum</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#MusicEvent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#MusicEvent">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Event"/>
+        <rdfs:comment>Event type: Music event.</rdfs:comment>
+        <rdfs:label>MusicEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Park -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Park">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#TouristAttraction"/>
+        <rdfs:comment>A park.</rdfs:comment>
+        <rdfs:label>Park</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Rating -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Rating">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#ratingValue"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A rating is an evaluation on a numeric scale, such as 1 to 5 stars.</rdfs:comment>
+        <rdfs:label>Rating</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Restaurant -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Restaurant">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#locationCity"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smartourism#City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#rating"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smartourism#Rating"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#servesCuisine"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A restaurant.</rdfs:comment>
+        <rdfs:isDefinedBy>https://schema.org/Restaurant</rdfs:isDefinedBy>
+        <rdfs:label>Restaurant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#SocialEvent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#SocialEvent">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Event"/>
+        <rdfs:comment>Event type: Social event.</rdfs:comment>
+        <rdfs:label>SocialEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#SportsEvent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#SportsEvent">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Event"/>
+        <rdfs:comment>Event type: Sports event.</rdfs:comment>
+        <rdfs:label>SportsEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Subway -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Subway">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Vehicle"/>
+        <rdfs:comment>A subway.</rdfs:comment>
+        <rdfs:label>Subway (underpass)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Taxi -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Taxi">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Vehicle"/>
+        <rdfs:comment>A taxi.</rdfs:comment>
+        <rdfs:label>Taxi</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#TouristAttraction -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#TouristAttraction">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#locationCity"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smartourism#City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#rating"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smartourism#Rating"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A tourist attraction.</rdfs:comment>
+        <rdfs:isDefinedBy>https://schema.org/TouristAttraction</rdfs:isDefinedBy>
+        <rdfs:label>TouristAttraction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Tram -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Tram">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smartourism#Vehicle"/>
+        <rdfs:comment>A trolleybus is an electric bus that draws power from dual overhead wires (generally suspended from roadside posts) using spring-loaded trolley poles.</rdfs:comment>
+        <rdfs:label>Trolleybus</rdfs:label>
+        <rdfs:sameAs>https://dbpedia.org/page/Trolleybus</rdfs:sameAs>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smartourism#Vehicle -->
+
+
+    <owl:Class rdf:about="https://w3id.org/smartourism#Vehicle">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#locationCity"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smartourism#City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smartourism#company"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A mean of transport.</rdfs:comment>
+        <rdfs:label>MeansOfTransport</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/smartourism#CatedralToledo -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smartourism#CatedralToledo">
+        <rdf:type rdf:resource="https://w3id.org/smartourism#Monument"/>
+        <locationCity rdf:resource="https://w3id.org/smartourism#Toledo"/>
+        <rating rdf:resource="https://w3id.org/smartourism#RatingCatedralToledo"/>
+        <name>Catedral de Toledo</name>
+        <rdfs:comment>The catedral in the city of Toledo.</rdfs:comment>
+        <rdfs:label>CatedralToledo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smartourism#FeriaToledo -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smartourism#FeriaToledo">
+        <rdf:type rdf:resource="https://w3id.org/smartourism#SportsEvent"/>
+        <locationCity rdf:resource="https://w3id.org/smartourism#Toledo"/>
+        <startDate>2024-08-26</startDate>
+        <rdfs:comment>The fair of the city of Toledo.</rdfs:comment>
+        <rdfs:label>FeriaToledo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smartourism#HotelVistaToledo -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smartourism#HotelVistaToledo">
+        <rdf:type rdf:resource="https://w3id.org/smartourism#BeachHotel"/>
+        <locationCity rdf:resource="https://w3id.org/smartourism#Toledo"/>
+        <rating rdf:resource="https://w3id.org/smartourism#RatingHotelVistaToledo"/>
+        <name>Hotel Vista Toledo</name>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#float">70.0</price>
+        <starRating rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</starRating>
+        <rdfs:comment>A beach resort in the city of Toledo.</rdfs:comment>
+        <rdfs:label>HotelVistaToledo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smartourism#RatingCatedralToledo -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smartourism#RatingCatedralToledo">
+        <rdf:type rdf:resource="https://w3id.org/smartourism#Rating"/>
+        <ratingValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</ratingValue>
+        <rdfs:comment>The numeric rating of Toledo&apos;s Cathedral.</rdfs:comment>
+        <rdfs:label>RatingCatedralToledo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smartourism#RatingHotelVistaToledo -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smartourism#RatingHotelVistaToledo">
+        <rdf:type rdf:resource="https://w3id.org/smartourism#Rating"/>
+        <ratingValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</ratingValue>
+        <rdfs:comment>The numeric rating of Hotel Vista Toledo in the city of Toledo.</rdfs:comment>
+        <rdfs:label>RatingHotelVistaToledo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smartourism#RatingRestauranteGourmetToledo -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smartourism#RatingRestauranteGourmetToledo">
+        <rdf:type rdf:resource="https://w3id.org/smartourism#Rating"/>
+        <ratingValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</ratingValue>
+        <rdfs:comment>The numeric rating of Restaurante Gourmet Toledo in the city of Toledo.</rdfs:comment>
+        <rdfs:label>RatingRestauranteGourmetToledo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smartourism#RestauranteGourmetToledo -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smartourism#RestauranteGourmetToledo">
+        <rdf:type rdf:resource="https://w3id.org/smartourism#Restaurant"/>
+        <locationCity rdf:resource="https://w3id.org/smartourism#Toledo"/>
+        <rating rdf:resource="https://w3id.org/smartourism#RatingRestauranteGourmetToledo"/>
+        <name>Restaurante Gourmet Toledo</name>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#float">48.0</price>
+        <servesCuisine>Japanese</servesCuisine>
+        <rdfs:comment>A japanese restaurant in the city of Toledo.</rdfs:comment>
+        <rdfs:label>RestauranteGourmetToledo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smartourism#Toledo -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smartourism#Toledo">
+        <rdf:type rdf:resource="https://w3id.org/smartourism#City"/>
+        <latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">39.8628</latitude>
+        <longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-4.0273</longitude>
+        <name>Toledo</name>
+        <rdfs:comment>The Spanish city of Toledo.</rdfs:comment>
+        <rdfs:label>Toledo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smartourism#TranviaToledo -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smartourism#TranviaToledo">
+        <rdf:type rdf:resource="https://w3id.org/smartourism#Tram"/>
+        <locationCity rdf:resource="https://w3id.org/smartourism#Toledo"/>
+        <company>Movi Toledo</company>
+        <price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.04</price>
+        <rdfs:comment>The trolleybus of the city of Toledo.</rdfs:comment>
+        <rdfs:label>TranviaToledo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="urn:swrl:var#h">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#p">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#v">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="https://w3id.org/smartourism#Hotel"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#h"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://w3id.org/smartourism#price"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#h"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#p"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="urn:swrl:var#p"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float">100.0</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="https://w3id.org/smartourism#LuxuryHotel"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#h"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/smartourism#ratingValue"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#v"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="urn:swrl:var#v"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="https://w3id.org/smartourism#Rating"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/smartourism#ratingValue"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</swrl:argument2>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/smartourism#ratingValue"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#v"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="urn:swrl:var#v"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.0</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="https://w3id.org/smartourism#Rating"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/smartourism#ratingValue"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.0</swrl:argument2>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+
